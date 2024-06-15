@@ -11,10 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		6AE820F375F7E66EF242C5F0 /* libPods-ChallengerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAC74529E3FC97334FA4039 /* libPods-ChallengerApp.a */; };
 		6E60B2E916D0A36D87A51312 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7D39AC6AFFED4A94C1B53D31 /* PrivacyInfo.xcprivacy */; };
+		77AF58F5A096E3AC1E0D56A9 /* libPods-ChallengerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17ECF75BE376A78677B53C50 /* libPods-ChallengerApp.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C2FC1000E05883BB4A299532 /* libPods-ChallengerApp-ChallengerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31010371CCC9E040B3C8E310 /* libPods-ChallengerApp-ChallengerAppTests.a */; };
+		AC8D086DC840BC9AD60E48F1 /* libPods-ChallengerApp-ChallengerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B6F9681AD7676409728145 /* libPods-ChallengerApp-ChallengerAppTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +31,7 @@
 		00E356EE1AD99517003FC87E /* ChallengerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ChallengerAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChallengerAppTests.m; sourceTree = "<group>"; };
-		01FF9D14A0A733A7407895D0 /* Pods-ChallengerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp.debug.xcconfig"; path = "Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp.debug.xcconfig"; sourceTree = "<group>"; };
-		06294B2693E09AE7BB466CE7 /* Pods-ChallengerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp.release.xcconfig"; path = "Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp.release.xcconfig"; sourceTree = "<group>"; };
+		08574E16811BB5C895446DE0 /* Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ChallengerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ChallengerApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ChallengerApp/AppDelegate.mm; sourceTree = "<group>"; };
@@ -40,13 +39,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ChallengerApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ChallengerApp/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ChallengerApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		31010371CCC9E040B3C8E310 /* libPods-ChallengerApp-ChallengerAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChallengerApp-ChallengerAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17ECF75BE376A78677B53C50 /* libPods-ChallengerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChallengerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B6F9681AD7676409728145 /* libPods-ChallengerApp-ChallengerAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChallengerApp-ChallengerAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35408580D85118E8012E29DF /* Pods-ChallengerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp.debug.xcconfig"; path = "Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3C637C37B07F7501EF96726F /* Pods-ChallengerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp.release.xcconfig"; path = "Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp.release.xcconfig"; sourceTree = "<group>"; };
+		76CEE82A38B6223EB20DD811 /* Pods-ChallengerApp-ChallengerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp-ChallengerAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7D39AC6AFFED4A94C1B53D31 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = ChallengerApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ChallengerApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B985FFDD5C24D27BC6D744B2 /* Pods-ChallengerApp-ChallengerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp-ChallengerAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		D2248EFBCC21327CA14FE720 /* Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		EDAC74529E3FC97334FA4039 /* libPods-ChallengerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChallengerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2FC1000E05883BB4A299532 /* libPods-ChallengerApp-ChallengerAppTests.a in Frameworks */,
+				AC8D086DC840BC9AD60E48F1 /* libPods-ChallengerApp-ChallengerAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AE820F375F7E66EF242C5F0 /* libPods-ChallengerApp.a in Frameworks */,
+				77AF58F5A096E3AC1E0D56A9 /* libPods-ChallengerApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				EDAC74529E3FC97334FA4039 /* libPods-ChallengerApp.a */,
-				31010371CCC9E040B3C8E310 /* libPods-ChallengerApp-ChallengerAppTests.a */,
+				17ECF75BE376A78677B53C50 /* libPods-ChallengerApp.a */,
+				33B6F9681AD7676409728145 /* libPods-ChallengerApp-ChallengerAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,10 +145,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				01FF9D14A0A733A7407895D0 /* Pods-ChallengerApp.debug.xcconfig */,
-				06294B2693E09AE7BB466CE7 /* Pods-ChallengerApp.release.xcconfig */,
-				D2248EFBCC21327CA14FE720 /* Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig */,
-				B985FFDD5C24D27BC6D744B2 /* Pods-ChallengerApp-ChallengerAppTests.release.xcconfig */,
+				35408580D85118E8012E29DF /* Pods-ChallengerApp.debug.xcconfig */,
+				3C637C37B07F7501EF96726F /* Pods-ChallengerApp.release.xcconfig */,
+				08574E16811BB5C895446DE0 /* Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig */,
+				76CEE82A38B6223EB20DD811 /* Pods-ChallengerApp-ChallengerAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -160,12 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ChallengerAppTests" */;
 			buildPhases = (
-				FEE174D184AF8881FB052A16 /* [CP] Check Pods Manifest.lock */,
+				5BFA1472EB56179885A0A815 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				BFFB5339E6F34B61251170EB /* [CP] Embed Pods Frameworks */,
-				69437793633A408DD9E4762B /* [CP] Copy Pods Resources */,
+				15EE225ECB7DD152C1C1F957 /* [CP] Embed Pods Frameworks */,
+				B05FFB6662D0C3265D6DFF4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,13 +181,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ChallengerApp" */;
 			buildPhases = (
-				133C1AE8AA887114385EADB6 /* [CP] Check Pods Manifest.lock */,
+				1335ED5659441B3A3955B8FE /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				0E0862ED4ABACEF7E1A317E8 /* [CP] Embed Pods Frameworks */,
-				48CA1789A38CB69F112C360C /* [CP] Copy Pods Resources */,
+				D030071EB5B7ED0EAF4BAC0F /* [CP] Embed Pods Frameworks */,
+				63B3C7AD414FD268F1500524 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,24 +271,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		0E0862ED4ABACEF7E1A317E8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		133C1AE8AA887114385EADB6 /* [CP] Check Pods Manifest.lock */ = {
+		1335ED5659441B3A3955B8FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,41 +293,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		48CA1789A38CB69F112C360C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69437793633A408DD9E4762B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BFFB5339E6F34B61251170EB /* [CP] Embed Pods Frameworks */ = {
+		15EE225ECB7DD152C1C1F957 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,7 +310,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FEE174D184AF8881FB052A16 /* [CP] Check Pods Manifest.lock */ = {
+		5BFA1472EB56179885A0A815 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,6 +330,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63B3C7AD414FD268F1500524 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B05FFB6662D0C3265D6DFF4E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp-ChallengerAppTests/Pods-ChallengerApp-ChallengerAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D030071EB5B7ED0EAF4BAC0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengerApp/Pods-ChallengerApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -416,7 +416,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2248EFBCC21327CA14FE720 /* Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig */;
+			baseConfigurationReference = 08574E16811BB5C895446DE0 /* Pods-ChallengerApp-ChallengerAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -443,7 +443,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B985FFDD5C24D27BC6D744B2 /* Pods-ChallengerApp-ChallengerAppTests.release.xcconfig */;
+			baseConfigurationReference = 76CEE82A38B6223EB20DD811 /* Pods-ChallengerApp-ChallengerAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -467,7 +467,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01FF9D14A0A733A7407895D0 /* Pods-ChallengerApp.debug.xcconfig */;
+			baseConfigurationReference = 35408580D85118E8012E29DF /* Pods-ChallengerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -494,7 +494,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06294B2693E09AE7BB466CE7 /* Pods-ChallengerApp.release.xcconfig */;
+			baseConfigurationReference = 3C637C37B07F7501EF96726F /* Pods-ChallengerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
