@@ -21,7 +21,11 @@ export default function MainTab() {
   return (
     <Tab.Navigator
       tabBar={(props: BottomTabBarProps) => <TabBarMain {...props} />}>
-      <Tab.Screen name="HomeScreen" component={HomeScreen} />
+      <Tab.Screen
+        name="HomeScreen"
+        options={{headerShown: false}}
+        component={HomeScreen}
+      />
       <Tab.Screen name="WithDrawScreen" component={WithDrawScreen} />
       <Tab.Screen name="SettingScreen" component={SettingScreen} />
     </Tab.Navigator>

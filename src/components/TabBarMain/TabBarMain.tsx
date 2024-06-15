@@ -51,14 +51,14 @@ export default function TabBarMain({
           onPress={() => navigation.navigate('HomeScreen')}
         />
         <ButtonTab
-          icon="menu"
+          icon="money"
           iconSize={30}
           text={'WITHDRAW'}
           active={isActiveButtonMenu}
           onPress={() => navigation.navigate('WithDrawScreen')}
         />
         <ButtonTab
-          icon="setting"
+          icon="cog"
           iconSize={30}
           text={'SETTING'}
           active={isActiveButtonSetting}

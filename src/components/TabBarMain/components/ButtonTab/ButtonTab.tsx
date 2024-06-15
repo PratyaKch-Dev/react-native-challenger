@@ -1,12 +1,13 @@
 import React, {useMemo} from 'react';
-import {TouchableOpacity, GestureResponderEvent} from 'react-native';
-
+import {
+  TouchableOpacity,
+  GestureResponderEvent,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {colors} from 'theme';
-
-// import Icon, { Icons } from 'components/Icon'
-import Text from 'components/Text';
-
-import styles from './ButtonTab.style';
 
 interface ButtonTabProps {
   text: string;
@@ -29,20 +30,35 @@ export default function ButtonTab({
     }),
     [props.active],
   );
+
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={1}
       style={styles.container}>
-      {/* <Icon
-        name={props.icon as keyof typeof Icons}
-        color={color}
-        fontSize={iconFontSize}
-        style={styles.icon}
-      /> */}
-      <Text fontSize="1" mt="2px" textAlign="center" style={textStyle}>
-        {props.text}
-      </Text>
+      <View style={styles.iconContainer}>
+        <Icon name={props.icon} size={iconFontSize} color={color} />
+        <Text style={[styles.text, textStyle]}>{props.text}</Text>
+      </View>
     </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconContainer: {
+    alignItems: 'center',
+  },
+  text: {
+    marginTop: 2,
+    fontSize: 12,
+    textAlign: 'center',
+    color: colors.gray[0],
+  },
+  textActive: {
+    color: colors.primary,
+  },
+});
