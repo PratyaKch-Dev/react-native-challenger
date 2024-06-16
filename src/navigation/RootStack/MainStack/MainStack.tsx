@@ -31,7 +31,7 @@ export default function MainStack() {
 
   useEffect(
     () => {
-      const isLoggedIn = true;
+      const isLoggedIn = false;
       // !!user?.accessToken
 
       const navInit = isLoggedIn
