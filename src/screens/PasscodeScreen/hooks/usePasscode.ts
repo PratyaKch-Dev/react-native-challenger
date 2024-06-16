@@ -1,7 +1,8 @@
 import {useState, useCallback, useEffect} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, CommonActions} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {MainStackParams} from 'navigation/RootStack/MainStack';
+import useUser from 'hooks/useUser';
 
 type MainStackNavigationProp = StackNavigationProp<MainStackParams, 'MainTab'>;
 
@@ -11,6 +12,9 @@ export default function usePasscode() {
   const [confirmPasscode, setConfirmPasscode] = useState('');
   const [error, setError] = useState('');
   const [isSettingPasscode, setIsSettingPasscode] = useState(true);
+  const [existingPasscode, setExistingPasscode] = useState<string | null>(null);
+
+  const {savePasscode, getPasscode, logout} = useUser();
 
   const handlePress = useCallback(
     (value: string) => {
@@ -32,18 +36,53 @@ export default function usePasscode() {
   );
 
   useEffect(() => {
+    const checkExistingPasscode = async () => {
+      const storedPasscode = await getPasscode();
+      if (storedPasscode) {
+        setExistingPasscode(storedPasscode);
+        setIsSettingPasscode(false);
+      }
+    };
+
+    checkExistingPasscode();
+  }, [getPasscode]);
+
+  useEffect(() => {
     if (isSettingPasscode && passcode.length === 6) {
       setIsSettingPasscode(false);
+    } else if (
+      !isSettingPasscode &&
+      confirmPasscode.length === 6 &&
+      existingPasscode
+    ) {
+      validatePasscode(confirmPasscode);
     } else if (!isSettingPasscode && confirmPasscode.length === 6) {
       if (passcode === confirmPasscode) {
         setError('');
+        savePasscode(passcode);
         navigation.navigate('MainTab', {screen: 'HomeScreen'});
       } else {
         setError('Passcodes do not match. Please try again.');
         setConfirmPasscode('');
       }
     }
-  }, [isSettingPasscode, passcode, confirmPasscode, navigation]);
+  }, [
+    isSettingPasscode,
+    passcode,
+    confirmPasscode,
+    navigation,
+    savePasscode,
+    existingPasscode,
+  ]);
+
+  const validatePasscode = async (inputPasscode: string) => {
+    if (existingPasscode === inputPasscode) {
+      navigation.navigate('MainTab', {screen: 'HomeScreen'});
+    } else {
+      setError('Incorrect passcode. Please try again.');
+      setConfirmPasscode('');
+    }
+  };
 
   const resetPasscode = useCallback(() => {
     setPasscode('');
@@ -52,6 +91,16 @@ export default function usePasscode() {
     setIsSettingPasscode(true);
   }, []);
 
+  const forgotPasscode = useCallback(() => {
+    logout();
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{name: 'SignUpStack', params: {screen: 'SignInScreen'}}],
+      }),
+    );
+  }, [navigation, logout]);
+
   return {
     passcode,
     confirmPasscode,
@@ -59,5 +108,7 @@ export default function usePasscode() {
     isSettingPasscode,
     handlePress,
     resetPasscode,
+    forgotPasscode,
+    existingPasscode,
   };
 }

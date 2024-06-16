@@ -2,6 +2,7 @@ import {useState, useCallback, useEffect} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SignUpStackParams} from 'navigation/RootStack/MainStack/SignUpStack';
+import useUser from 'hooks/useUser';
 
 type SignInScreenNavigationProp = StackNavigationProp<
   SignUpStackParams,
@@ -17,6 +18,8 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
   const [isPhoneNumberConfirmed, setIsPhoneNumberConfirmed] =
     useState<boolean>(false);
 
+  const {login} = useUser();
+
   const sendOtp = useCallback(() => {
     if (phoneNumber.length === 10) {
       setOtpSent(true);
@@ -31,12 +34,14 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
 
   const verifyOtp = useCallback(() => {
     if (otp === '1234') {
+      const token = 'exampleToken123';
+      login(token);
       navigation.navigate('PasscodeScreen');
       setError('');
     } else {
       setError('Invalid OTP. Please try again.');
     }
-  }, [otp, navigation]);
+  }, [otp, navigation, login]);
 
   const handlePhoneNumberConfirm = useCallback(() => {
     sendOtp();

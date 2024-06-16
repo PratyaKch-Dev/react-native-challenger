@@ -1,8 +1,15 @@
 import React from 'react';
-import RootStack from 'navigation/RootStack';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import store, {persistor} from './store';
+import RootStack from './navigation/RootStack';
 
-const App = () => {
-  return <RootStack />;
-};
-
-export default App;
+export default function App() {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RootStack />
+      </PersistGate>
+    </Provider>
+  );
+}

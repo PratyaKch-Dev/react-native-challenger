@@ -10,12 +10,14 @@ export default function PasscodeScreen() {
     isSettingPasscode,
     handlePress,
     resetPasscode,
+    forgotPasscode,
+    existingPasscode,
   } = usePasscode();
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        {isSettingPasscode ? 'SETTING PASSCODE' : 'CONFIRM PASSCODE'}
+        {isSettingPasscode ? 'SETTING PASSCODE' : 'ENTER PASSCODE'}
       </Text>
       <View style={styles.pinContainer}>
         {[...Array(6)].map((_, index) => (
@@ -76,7 +78,12 @@ export default function PasscodeScreen() {
         </View>
       </View>
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
-      {!isSettingPasscode && (
+      {existingPasscode && !isSettingPasscode && (
+        <TouchableOpacity style={styles.forgotButton} onPress={forgotPasscode}>
+          <Text style={styles.forgotButtonText}>FORGOT PASSCODE</Text>
+        </TouchableOpacity>
+      )}
+      {!existingPasscode && !isSettingPasscode && (
         <TouchableOpacity style={styles.resetButton} onPress={resetPasscode}>
           <Text style={styles.resetButtonText}>RESET TO SETTING PASSCODE</Text>
         </TouchableOpacity>
@@ -147,6 +154,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   resetButtonText: {
+    color: '#FFF',
+    fontSize: 18,
+  },
+  forgotButton: {
+    marginTop: 10,
+    padding: 10,
+    backgroundColor: '#A9A9A9',
+    borderRadius: 5,
+  },
+  forgotButtonText: {
     color: '#FFF',
     fontSize: 18,
   },

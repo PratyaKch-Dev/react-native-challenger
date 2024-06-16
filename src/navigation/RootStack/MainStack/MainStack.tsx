@@ -5,8 +5,9 @@ import MainTab, {MainTabParams} from './MainTab';
 import SignUpStack, {SignUpStackParams} from './SignUpStack';
 import {NavigatorScreenParams} from '@react-navigation/native';
 import ButtonIcon from 'components/ButtonIcon';
-// import {useSelector} from 'react-redux'
-// import {RootState} from 'store'
+import {useSelector} from 'react-redux';
+import {RootState} from 'store';
+import useUser from 'hooks/useUser';
 
 export type MainStackParams = {
   MainTab: NavigatorScreenParams<MainTabParams>;
@@ -23,25 +24,28 @@ const styles = StyleSheet.create({
 const Stack = createStackNavigator<MainStackParams>();
 
 export default function MainStack() {
-  const [initialRoute, setInitialRoute] = useState<any>();
+  const [initialRoute, setInitialRoute] = useState<
+    keyof MainStackParams | undefined
+  >();
   const [initialParams, setInitialParams] = useState<any>({});
 
-  //   const user = useSelector((state: RootState) => state.user)
+  const token = useSelector((state: RootState) => state.user.token);
+  const {getPasscode} = useUser();
 
-  useEffect(
-    () => {
-      const isLoggedIn = false;
-      // !!user?.accessToken
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      const passcode = await getPasscode();
+      const isLoggedIn = !!token && !!passcode;
 
       const navInit = isLoggedIn
         ? {
-            screen: 'MainTab',
+            screen: 'SignUpStack' as keyof MainStackParams,
             params: {
-              screen: 'HomeScreen',
+              screen: 'PasscodeScreen',
             },
           }
         : {
-            screen: 'SignUpStack',
+            screen: 'SignUpStack' as keyof MainStackParams,
             params: {
               screen: 'SignUpScreen',
             },
@@ -49,11 +53,10 @@ export default function MainStack() {
 
       setInitialParams(navInit.params);
       setInitialRoute(navInit.screen);
-    },
-    [
-      // user
-    ],
-  );
+    };
+
+    checkLoginStatus();
+  }, [token, getPasscode]);
 
   return initialRoute ? (
     <Stack.Navigator
