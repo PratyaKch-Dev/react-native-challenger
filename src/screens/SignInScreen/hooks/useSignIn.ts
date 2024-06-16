@@ -3,6 +3,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SignUpStackParams} from 'navigation/RootStack/MainStack/SignUpStack';
 import useUser from 'hooks/useUser';
+import {useModalError} from 'contexts/ModalErrorContext';
 
 type SignInScreenNavigationProp = StackNavigationProp<
   SignUpStackParams,
@@ -17,8 +18,9 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
   const [timer, setTimer] = useState<number>(0);
   const [isPhoneNumberConfirmed, setIsPhoneNumberConfirmed] =
     useState<boolean>(false);
+  const {openModalError} = useModalError();
 
-  const {login} = useUser();
+  const {handleSignIn} = useUser();
 
   const sendOtp = useCallback(() => {
     if (phoneNumber.length === 10) {
@@ -34,14 +36,22 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
 
   const verifyOtp = useCallback(() => {
     if (otp === '1234') {
-      const token = 'exampleToken123';
-      login(token);
-      navigation.navigate('PasscodeScreen');
-      setError('');
+      handleSignIn(phoneNumber)
+        .then(() => {
+          navigation.navigate('PasscodeScreen');
+        })
+        .catch(error => {
+          console.error('handleSignIn:error:', error);
+          const errorMessage =
+            error && typeof error === 'object' && 'message' in error
+              ? (error as {message: string}).message
+              : 'An unexpected error occurred';
+          openModalError(errorMessage);
+        });
     } else {
       setError('Invalid OTP. Please try again.');
     }
-  }, [otp, navigation, login]);
+  }, [otp, navigation, phoneNumber, handleSignIn]);
 
   const handlePhoneNumberConfirm = useCallback(() => {
     sendOtp();

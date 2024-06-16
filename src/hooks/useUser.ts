@@ -1,16 +1,18 @@
-import {useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../store';
 import {setUser, clearUser} from '../store/user/actions';
 import * as Keychain from 'react-native-keychain';
+import authService from 'services/api/authService';
+import {SignInResponseDataSuccess} from 'services/api/authService/signin';
 
 const useUser = () => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.user.token);
 
   const login = useCallback(
-    (token: string) => {
-      dispatch(setUser({token}));
+    (token: string, phone: string) => {
+      dispatch(setUser({token, phone}));
     },
     [dispatch],
   );
@@ -40,6 +42,23 @@ const useUser = () => {
       return null;
     }
   }, []);
+  const handleSignIn = useCallback(
+    async (phoneInput: string): Promise<void> => {
+      console.log('handleSignIn called with phoneInput:', phoneInput);
+      try {
+        const response = await authService().signin({
+          phone: phoneInput,
+        });
+        console.log('handleSignIn:response:', response);
+        const data = response.data as SignInResponseDataSuccess;
+        const {token, phone} = data.data;
+        login(token, phone);
+      } catch (error) {
+        throw error;
+      }
+    },
+    [login],
+  );
 
   return {
     token,
@@ -47,6 +66,7 @@ const useUser = () => {
     logout,
     savePasscode,
     getPasscode,
+    handleSignIn,
   };
 };
 
