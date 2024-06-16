@@ -8,7 +8,7 @@ import {
 import {createStackNavigator} from '@react-navigation/stack';
 import {colors} from 'theme';
 import {navigationRef, setReadyNavigationRef} from '../navigate';
-import MainStack, {MainStackParams, MainStackScreensParams} from './MainStack';
+import MainStack, {MainStackParams} from './MainStack';
 
 const Stack = createStackNavigator();
 
@@ -20,11 +20,7 @@ const theme = {
 };
 
 export type RootStackParams = {
-  MainStack: MainStackParams;
-};
-
-export type RootScreensParams = {
-  MainStack?: NavigatorScreenParams<MainStackScreensParams>;
+  MainStack: NavigatorScreenParams<MainStackParams>;
 };
 
 function RootStack() {

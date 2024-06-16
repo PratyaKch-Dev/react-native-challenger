@@ -1,27 +1,32 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import usePasscode from './hooks/usePasscode';
 
 export default function PasscodeScreen() {
-  const [pin, setPin] = useState('');
-
-  const handlePress = (value: string) => {
-    if (value === 'clear') {
-      setPin(pin.slice(0, -1));
-    } else {
-      if (pin.length < 6) {
-        setPin(pin + value);
-      }
-    }
-  };
+  const {
+    passcode,
+    confirmPasscode,
+    error,
+    isSettingPasscode,
+    handlePress,
+    resetPasscode,
+  } = usePasscode();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>SETTING PIN</Text>
+      <Text style={styles.title}>
+        {isSettingPasscode ? 'SETTING PASSCODE' : 'CONFIRM PASSCODE'}
+      </Text>
       <View style={styles.pinContainer}>
         {[...Array(6)].map((_, index) => (
           <View
             key={index}
-            style={[styles.pinDot, pin.length > index && styles.pinDotFilled]}
+            style={[
+              styles.pinDot,
+              (isSettingPasscode
+                ? passcode.length > index
+                : confirmPasscode.length > index) && styles.pinDotFilled,
+            ]}
           />
         ))}
       </View>
@@ -70,6 +75,12 @@ export default function PasscodeScreen() {
           </TouchableOpacity>
         </View>
       </View>
+      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      {!isSettingPasscode && (
+        <TouchableOpacity style={styles.resetButton} onPress={resetPasscode}>
+          <Text style={styles.resetButtonText}>RESET TO SETTING PASSCODE</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
@@ -124,5 +135,19 @@ const styles = StyleSheet.create({
   },
   numberText: {
     fontSize: 24,
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 10,
+  },
+  resetButton: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#A9A9A9',
+    borderRadius: 5,
+  },
+  resetButtonText: {
+    color: '#FFF',
+    fontSize: 18,
   },
 });

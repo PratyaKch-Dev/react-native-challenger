@@ -8,12 +8,11 @@ import ButtonIcon from 'components/ButtonIcon';
 // import {useSelector} from 'react-redux'
 // import {RootState} from 'store'
 
-export type MainStackParams = undefined;
-
-export type MainStackScreensParams = {
+export type MainStackParams = {
   MainTab: NavigatorScreenParams<MainTabParams>;
-  SignUpStack: SignUpStackParams;
+  SignUpStack: NavigatorScreenParams<SignUpStackParams>;
 };
+
 const styles = StyleSheet.create({
   spacer: {
     width: 48,
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Stack = createStackNavigator<MainStackScreensParams>();
+const Stack = createStackNavigator<MainStackParams>();
 
 export default function MainStack() {
   const [initialRoute, setInitialRoute] = useState<any>();
