@@ -42,6 +42,7 @@ const useUser = () => {
       return null;
     }
   }, []);
+
   const handleSignIn = useCallback(
     async (phoneInput: string): Promise<void> => {
       console.log('handleSignIn called with phoneInput:', phoneInput);
@@ -60,6 +61,10 @@ const useUser = () => {
     [login],
   );
 
+  const resetPin = useCallback(() => {
+    Keychain.resetGenericPassword();
+  }, []);
+
   return {
     token,
     login,
@@ -67,6 +72,7 @@ const useUser = () => {
     savePasscode,
     getPasscode,
     handleSignIn,
+    resetPin,
   };
 };
 

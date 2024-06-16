@@ -1,13 +1,16 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import useSettings from './hooks/useSettings';
 
 export type SettingScreenParams = undefined;
 
 export default function SettingScreen() {
+  const {resetPin, logout} = useSettings();
+
   return (
     <View style={styles.container}>
-      <SettingItem title="RESET PIN" onPress={() => {}} />
-      <SettingItem title="LOGOUT" onPress={() => {}} />
+      <SettingItem title="RESET PIN" onPress={resetPin} />
+      <SettingItem title="LOGOUT" onPress={logout} />
     </View>
   );
 }
