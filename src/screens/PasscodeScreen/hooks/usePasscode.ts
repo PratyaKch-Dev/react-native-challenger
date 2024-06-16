@@ -60,7 +60,12 @@ export default function usePasscode() {
       if (passcode === confirmPasscode) {
         setError('');
         savePasscode(passcode);
-        navigation.navigate('MainTab', {screen: 'HomeScreen'});
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [{name: 'MainTab', params: {screen: 'HomeScreen'}}],
+          }),
+        );
       } else {
         setError('Passcodes do not match. Please try again.');
         setConfirmPasscode('');
@@ -78,7 +83,12 @@ export default function usePasscode() {
   const validatePasscode = useCallback(
     async (inputPasscode: string) => {
       if (existingPasscode === inputPasscode) {
-        navigation.navigate('MainTab', {screen: 'HomeScreen'});
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [{name: 'MainTab', params: {screen: 'HomeScreen'}}],
+          }),
+        );
       } else {
         setError('Incorrect passcode. Please try again.');
         setConfirmPasscode('');

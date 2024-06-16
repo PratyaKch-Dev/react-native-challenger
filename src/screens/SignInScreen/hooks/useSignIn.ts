@@ -3,7 +3,9 @@ import {useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SignUpStackParams} from 'navigation/RootStack/MainStack/SignUpStack';
 import useUser from 'hooks/useUser';
-import {useModalError} from 'contexts/ModalErrorContext';
+import {useDispatch} from 'react-redux';
+import {openModal} from 'store/modals/actions';
+import {MODALS} from 'components/AppModals/Modals';
 
 type SignInScreenNavigationProp = StackNavigationProp<
   SignUpStackParams,
@@ -18,9 +20,18 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
   const [timer, setTimer] = useState<number>(0);
   const [isPhoneNumberConfirmed, setIsPhoneNumberConfirmed] =
     useState<boolean>(false);
-  const {openModalError} = useModalError();
+  const dispatch = useDispatch();
 
   const {handleSignIn} = useUser();
+
+  const resetState = useCallback(() => {
+    setPhoneNumber('');
+    setOtp('');
+    setOtpSent(false);
+    setIsPhoneNumberConfirmed(false);
+    setError('');
+    setTimer(0);
+  }, []);
 
   const sendOtp = useCallback(() => {
     if (phoneNumber.length === 10) {
@@ -41,29 +52,29 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
           navigation.navigate('PasscodeScreen');
         })
         .catch(error => {
-          console.error('handleSignIn:error:', error);
           const errorMessage =
             error && typeof error === 'object' && 'message' in error
               ? (error as {message: string}).message
               : 'An unexpected error occurred';
-          openModalError(errorMessage);
+          dispatch(
+            openModal({
+              modalType: MODALS.MODAL_HANDLER_ERROR,
+              modalProps: {message: errorMessage},
+            }),
+          );
         });
     } else {
       setError('Invalid OTP. Please try again.');
     }
-  }, [otp, navigation, phoneNumber, handleSignIn]);
+  }, [otp, navigation, phoneNumber, handleSignIn, dispatch]);
 
   const handlePhoneNumberConfirm = useCallback(() => {
     sendOtp();
   }, [sendOtp]);
 
   const handlePhoneNumberReset = useCallback(() => {
-    setPhoneNumber('');
-    setOtp('');
-    setOtpSent(false);
-    setIsPhoneNumberConfirmed(false);
-    setError('');
-  }, []);
+    resetState();
+  }, [resetState]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;
@@ -84,13 +95,8 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
 
   useFocusEffect(
     useCallback(() => {
-      setPhoneNumber('');
-      setOtp('');
-      setOtpSent(false);
-      setIsPhoneNumberConfirmed(false);
-      setError('');
-      setTimer(0);
-    }, []),
+      resetState();
+    }, [resetState]),
   );
 
   return {

@@ -1,5 +1,10 @@
 import axios, {AxiosRequestConfig, AxiosResponse, AxiosError} from 'axios';
 import Store from 'store';
+import {clearUser} from 'store/user/actions';
+import {useNavigation, CommonActions} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {openModal} from 'store/modals/actions';
+import {MODALS} from 'components/AppModals/Modals';
 
 interface ErrorResponse {
   statusCode: any;
@@ -16,7 +21,11 @@ function setAuthorization(
   config: CustomAxiosRequestConfig,
 ): CustomAxiosRequestConfig {
   const user = Store.getState()?.user;
+  console.log('useruseruseruser :: ', user);
   const userToken = user ? user.token : null;
+  console.log('useruseruseruser :userToken: ', userToken);
+  console.log('useruseruseruser :_isAuth: ', config._isAuth);
+
   if (userToken && config._isAuth) {
     config.headers = config.headers ?? {};
     config.headers.Authorization = `Bearer ${userToken}`;
@@ -84,8 +93,17 @@ axios.interceptors.response.use(
     if (error.message === 'Network Error') {
       errorMessageObj.message = 'Network error occurred';
     } else if (error.response?.status) {
-      if (error.response && error.response.status === 401) {
-        //         redirectToLogin()
+      if (error.response && error.response.status === 403) {
+        errorMessageObj = error.response.data as ErrorResponse;
+        const errorMessage = errorMessageObj.message;
+
+        Store.dispatch(
+          openModal({
+            modalType: MODALS.MODAL_HANDLER_ERROR_LOGOUT,
+            modalProps: {message: errorMessage},
+          }),
+        );
+
         return;
       }
       errorMessageObj = error.response.data as ErrorResponse;

@@ -2,15 +2,21 @@ import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import useUserProfile from './hooks/useUserProfile';
 
 export type HomeScreenParams = undefined;
 
 export default function HomeScreen() {
+  const {userProfile, error, loading, refetch} = useUserProfile();
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.userName}>John Doe</Text>
+          <Text
+            style={
+              styles.userName
+            }>{`${userProfile?.firstname} ${userProfile?.lastname}`}</Text>
           <View style={styles.userIconContainer}>
             <Image
               style={styles.userIcon}
