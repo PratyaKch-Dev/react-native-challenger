@@ -75,14 +75,17 @@ export default function usePasscode() {
     existingPasscode,
   ]);
 
-  const validatePasscode = async (inputPasscode: string) => {
-    if (existingPasscode === inputPasscode) {
-      navigation.navigate('MainTab', {screen: 'HomeScreen'});
-    } else {
-      setError('Incorrect passcode. Please try again.');
-      setConfirmPasscode('');
-    }
-  };
+  const validatePasscode = useCallback(
+    async (inputPasscode: string) => {
+      if (existingPasscode === inputPasscode) {
+        navigation.navigate('MainTab', {screen: 'HomeScreen'});
+      } else {
+        setError('Incorrect passcode. Please try again.');
+        setConfirmPasscode('');
+      }
+    },
+    [existingPasscode, navigation],
+  );
 
   const resetPasscode = useCallback(() => {
     setPasscode('');
