@@ -54,8 +54,6 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
   }, [otp, navigation, phoneNumber, handleSignIn, dispatch]);
 
   const handlePhoneNumberConfirm = useCallback(() => {
-    sendOtp();
-
     handleSignIn(phoneNumber)
       .then(() => {
         sendOtp();
