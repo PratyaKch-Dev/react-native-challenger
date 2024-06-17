@@ -34,8 +34,11 @@ Follow these steps to set up the project on your local machine:
    pod setup
    pod install
    cd ..
+   ```
 
    For M1
+
+   ```sh
    cd ios
    rm -rf ~/Library/Caches/CocoaPods
    rm -rf Pods
@@ -61,13 +64,16 @@ To start the application, run:
 
 ```sh
 npx react-native run android
+```
+
 # or
+
+```sh
 npx react-native run ios
 ```
 
 ## Features
 
-```sh
 Sign In
 
 - Phone Number Input: Users can enter their phone number to sign in.
@@ -89,6 +95,5 @@ Settings
 - Settings Screen: Users can reset their PIN or log out.
 
 Re-Authentication
-- Token Management: If the user's token has not yet expired, users can use the application again by entering your passcode. If the token expires, the user must re-authenticate using their phone number and OTP.
 
-```
+- Token Management: If the user's token has not yet expired, users can use the application again by entering your passcode. If the token expires, the user must re-authenticate using their phone number and OTP.
