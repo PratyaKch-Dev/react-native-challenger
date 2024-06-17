@@ -5,6 +5,7 @@ import {useNavigation, CommonActions} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {openModal} from 'store/modals/actions';
 import {MODALS} from 'components/AppModals/Modals';
+import {Platform} from 'react-native';
 
 interface ErrorResponse {
   statusCode: any;
@@ -13,8 +14,13 @@ interface ErrorResponse {
 export interface CustomAxiosRequestConfig extends AxiosRequestConfig {
   _isAuth?: boolean;
 }
+
 async function setBaseUrl(config: HttpServiceConfig) {
-  config.baseURL = 'http://localhost:3000';
+  const iosUrl = 'http://localhost:3000';
+  const androidUrl = 'http://10.0.2.2:3000';
+  const baseUrl = Platform.OS === 'ios' ? iosUrl : androidUrl;
+
+  config.baseURL = baseUrl;
   return config;
 }
 function setAuthorization(
