@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import useSettings from './hooks/useSettings';
+import styles from './SettingScreen.style';
 
 export type SettingScreenParams = undefined;
 
@@ -22,19 +23,3 @@ function SettingItem({title, onPress}: {title: string; onPress: () => void}) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-  },
-  settingItem: {
-    backgroundColor: '#D3D3D3',
-    padding: 20,
-    marginBottom: 20,
-    borderRadius: 5,
-  },
-  settingText: {
-    fontSize: 16,
-    textAlign: 'left',
-  },
-});
