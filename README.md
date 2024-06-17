@@ -1,79 +1,94 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Project Name
 
-# Getting Started
+ChallengerApp
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Description
 
-## Step 1: Start the Metro Server
+This project is a React Native application designed to manage user authentication, OTP verification, and financial transactions. The application includes features such as signing in with a phone number, verifying OTP, setting a passcode, viewing transaction history, and performing withdrawals.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Installation
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Follow these steps to set up the project on your local machine:
 
-```bash
-# using npm
-npm start
+1. Clone the repository:
 
-# OR using Yarn
-yarn start
+   ```sh
+   git clone https://github.com/PratyaKch-Dev/react-native-challenger.git
+   cd react-native-challenger
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm i --legacy-peer-deps
+   ```
+
+3. Install Pods (iOS only):
+
+   ```sh
+   cd ios
+   rm -rf ~/Library/Caches/CocoaPods
+   rm -rf Pods
+   rm -rf ~/Library/Developer/Xcode/DerivedData/*
+   pod deintegrate
+   pod setup
+   pod install
+   cd ..
+
+   For M1
+   cd ios
+   rm -rf ~/Library/Caches/CocoaPods
+   rm -rf Pods
+   rm -rf ~/Library/Developer/Xcode/DerivedData/*
+   pod deintegrate
+   pod setup
+   arch -x86_64 pod install
+   cd ..
+   ```
+
+4. Reset Watchman Cache:
+   ```sh
+   watchman watch-del-all
+   rm -rf $TMPDIR/react-*
+   rm -rf $TMPDIR/haste-*
+   rm -rf $TMPDIR/metro-*
+   npm start -- --reset-cache
+   ```
+
+## Running the Application
+
+To start the application, run:
+
+```sh
+npx react-native run android
+# or
+npx react-native run ios
 ```
 
-## Step 2: Start your Application
+## Features
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```sh
+Sign In
 
-### For Android
+- Phone Number Input: Users can enter their phone number to sign in.
+- OTP Verification: After entering the phone number, users receive an OTP to verify. Note that the OTP is mock data and is always 1234 for testing purposes.
 
-```bash
-# using npm
-npm run android
+Passcode Setup
 
-# OR using Yarn
-yarn android
+- Set Passcode: Users can set a passcode for additional security.
+- Enter Passcode: Users must confirm the passcode to access certain features.
+
+Transaction Management
+
+- View Profile: Users can view their profile including first name and last name.
+- View Balance and History: Users can view their available balance and transaction history.
+- Withdraw Funds: Users can initiate withdrawals to their bank accounts.
+
+Settings
+
+- Settings Screen: Users can reset their PIN or log out.
+
+Re-Authentication
+- Token Management: If the user's token has not yet expired, users can use the application again by entering your passcode. If the token expires, the user must re-authenticate using their phone number and OTP.
+
 ```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
