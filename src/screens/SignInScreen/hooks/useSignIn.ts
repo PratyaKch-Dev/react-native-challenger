@@ -1,4 +1,4 @@
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useCallback, useEffect, useRef} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SignUpStackParams} from 'navigation/RootStack/MainStack/SignUpStack';
@@ -21,6 +21,7 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
   const [isPhoneNumberConfirmed, setIsPhoneNumberConfirmed] =
     useState<boolean>(false);
   const dispatch = useDispatch();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const {handleSignIn} = useUser();
 
@@ -51,7 +52,7 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
     } else {
       setError('Invalid OTP. Please try again.');
     }
-  }, [otp, navigation, phoneNumber, handleSignIn, dispatch]);
+  }, [otp, navigation]);
 
   const handlePhoneNumberConfirm = useCallback(() => {
     handleSignIn(phoneNumber)
@@ -70,25 +71,32 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
           }),
         );
       });
-  }, [sendOtp]);
+  }, [phoneNumber, sendOtp, handleSignIn, dispatch]);
 
   const handlePhoneNumberReset = useCallback(() => {
     resetState();
   }, [resetState]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined;
     if (otpSent && timer > 0) {
-      interval = setInterval(() => {
-        setTimer(prevTimer => prevTimer - 1);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      intervalRef.current = setInterval(() => {
+        setTimer(prevTimer => {
+          if (prevTimer <= 1) {
+            clearInterval(intervalRef.current!);
+            setOtpSent(false);
+            return 0;
+          }
+          return prevTimer - 1;
+        });
       }, 1000);
-    } else if (timer === 0) {
-      clearInterval(interval);
-      setOtpSent(false);
     }
+
     return () => {
-      if (interval) {
-        clearInterval(interval);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
       }
     };
   }, [otpSent, timer]);
