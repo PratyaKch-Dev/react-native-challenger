@@ -27,10 +27,7 @@ function setAuthorization(
   config: CustomAxiosRequestConfig,
 ): CustomAxiosRequestConfig {
   const user = Store.getState()?.user;
-  console.log('useruseruseruser :: ', user);
   const userToken = user ? user.token : null;
-  console.log('useruseruseruser :userToken: ', userToken);
-  console.log('useruseruseruser :_isAuth: ', config._isAuth);
 
   if (userToken && config._isAuth) {
     config.headers = config.headers ?? {};
@@ -71,7 +68,6 @@ axios.interceptors.request.use(
     return config;
   },
   (error: AxiosError) => {
-    console.log('Error occurred during request:', error);
     setUILoading(false, error.config || ({} as AxiosRequestConfig));
     return Promise.reject(error);
   },
@@ -90,7 +86,6 @@ axios.interceptors.response.use(
     return Promise.resolve(responseData);
   },
   (error: AxiosError) => {
-    console.log('AxiosError:', error.response);
     let errorMessageObj: ErrorResponse = {
       statusCode: error.response?.status,
       message: 'Something went wrong please try again',
@@ -113,7 +108,6 @@ axios.interceptors.response.use(
         return;
       }
       errorMessageObj = error.response.data as ErrorResponse;
-      console.log('AxiosError:Message', errorMessageObj);
     }
 
     return Promise.reject(errorMessageObj);

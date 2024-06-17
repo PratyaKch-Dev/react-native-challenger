@@ -45,12 +45,10 @@ const useUser = () => {
 
   const handleSignIn = useCallback(
     async (phoneInput: string): Promise<void> => {
-      console.log('handleSignIn called with phoneInput:', phoneInput);
       try {
         const response = await authService().signin({
           phone: phoneInput,
         });
-        console.log('handleSignIn:response:', response);
         const data = response.data as SignInResponseDataSuccess;
         const {token, phone} = data.data;
         login(token, phone);

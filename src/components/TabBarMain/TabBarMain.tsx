@@ -19,8 +19,6 @@ export default function TabBarMain({
   const isActiveButtonSetting =
     state.routes[state.index].name === 'SettingScreen';
 
-  console.log('indexxxxx :: ', state.routes[state.index].name);
-
   const insets = useSafeAreaInsets();
 
   const {containerHeight, styleInner} = useMemo(
