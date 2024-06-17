@@ -47,22 +47,7 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
 
   const verifyOtp = useCallback(() => {
     if (otp === '1234') {
-      handleSignIn(phoneNumber)
-        .then(() => {
-          navigation.navigate('PasscodeScreen');
-        })
-        .catch(error => {
-          const errorMessage =
-            error && typeof error === 'object' && 'message' in error
-              ? (error as {message: string}).message
-              : 'An unexpected error occurred';
-          dispatch(
-            openModal({
-              modalType: MODALS.MODAL_HANDLER_ERROR,
-              modalProps: {message: errorMessage},
-            }),
-          );
-        });
+      navigation.navigate('PasscodeScreen');
     } else {
       setError('Invalid OTP. Please try again.');
     }
@@ -70,6 +55,23 @@ export default function useSignIn(navigation: SignInScreenNavigationProp) {
 
   const handlePhoneNumberConfirm = useCallback(() => {
     sendOtp();
+
+    handleSignIn(phoneNumber)
+      .then(() => {
+        sendOtp();
+      })
+      .catch(error => {
+        const errorMessage =
+          error && typeof error === 'object' && 'message' in error
+            ? (error as {message: string}).message
+            : 'An unexpected error occurred';
+        dispatch(
+          openModal({
+            modalType: MODALS.MODAL_HANDLER_ERROR,
+            modalProps: {message: errorMessage},
+          }),
+        );
+      });
   }, [sendOtp]);
 
   const handlePhoneNumberReset = useCallback(() => {
