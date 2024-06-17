@@ -4,6 +4,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import store, {persistor} from './store';
 import RootStack from './navigation/RootStack';
 import Modals from 'components/AppModals';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <PersistGate loading={null} persistor={persistor}>
         <RootStack />
         <Modals />
+        <Toast />
       </PersistGate>
     </Provider>
   );

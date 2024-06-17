@@ -86,7 +86,7 @@ export default function HomeScreen() {
               <Text
                 style={
                   styles.userName
-                }>{`${memoizedUserProfile?.firstname} ${memoizedUserProfile?.lastname}`}</Text>
+                }>{`${memoizedUserProfile?.firstname}\n${memoizedUserProfile?.lastname}`}</Text>
               <View style={styles.userIconContainer}>
                 <Image
                   style={styles.userIcon}
@@ -153,6 +153,7 @@ const styles = StyleSheet.create({
   userName: {
     marginRight: 10,
     fontSize: 16,
+    textAlign: 'right',
   },
   userIconContainer: {
     width: 50,

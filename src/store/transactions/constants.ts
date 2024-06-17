@@ -1,0 +1,2 @@
+export const SET_TRANSACTIONS = 'SET_TRANSACTIONS';
+export const SET_AVAILABLE = 'SET_AVAILABLE';

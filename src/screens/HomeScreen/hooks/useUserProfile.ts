@@ -5,6 +5,7 @@ import {MODALS} from 'components/AppModals/Modals';
 import {useDispatch} from 'react-redux';
 import {UserProfileResponseDataSuccess} from 'services/api/userService/getUserProfile';
 import {TransactionsResponseDataSuccess} from 'services/api/userService/getUserTransactions';
+import {transactionsActions} from 'store/transactions';
 
 const useUserProfile = () => {
   const [userProfile, setUserProfile] = useState<any | null>(null);
@@ -18,8 +19,8 @@ const useUserProfile = () => {
     setError('');
     try {
       const response = await userService().getUserProfile();
-      const data = response.data as UserProfileResponseDataSuccess;
-      setUserProfile(data.data);
+      const data = response?.data as UserProfileResponseDataSuccess;
+      setUserProfile(data?.data);
     } catch (error) {
       const errorMessage =
         error && typeof error === 'object' && 'message' in error
@@ -41,8 +42,14 @@ const useUserProfile = () => {
     setError('');
     try {
       const response = await userService().getUserTransactions();
-      const data = response.data as TransactionsResponseDataSuccess;
-      setTransactions(data.data);
+      const data = response?.data as TransactionsResponseDataSuccess;
+      setTransactions(data?.data);
+      dispatch(
+        transactionsActions.setTransactions({
+          transactions: data?.data.transactions,
+        }),
+      );
+      dispatch(transactionsActions.setAvailable(data?.data.available));
     } catch (error) {
       const errorMessage =
         error && typeof error === 'object' && 'message' in error
