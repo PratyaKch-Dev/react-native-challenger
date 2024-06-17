@@ -14,7 +14,6 @@ Follow these steps to set up the project on your local machine:
 
    ```sh
    git clone https://github.com/PratyaKch-Dev/react-native-challenger.git
-   cd react-native-challenger
    ```
 
 2. Install dependencies:
@@ -96,4 +95,4 @@ Settings
 
 Re-Authentication
 
-- Token Management: If the user's token has not yet expired, users can use the application again by entering your passcode. If the token expires, the user must re-authenticate using their phone number and OTP.
+- Token Management: If the user's token has not yet expired, they can use the application again by entering their passcode. If the token expires, the user must re-authenticate using their phone number and OTP.
